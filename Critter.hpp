@@ -8,16 +8,18 @@
 
 class Critter
 {
-private:
+protected:
 	int stepNumber;
 	char critterChar;
+	int xSpot;
+	int ySpot;
 
 public:
 	//constructor with no parameters.
 	Critter();
 
 	//constructor with parameters to set starting step number and critter character
-	Critter(char c, int step);
+	Critter(char c, int step, int xOne, int yOne);
 
 	//getters
 	int getStepNumber();
