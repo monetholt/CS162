@@ -17,10 +17,12 @@ Critter::Critter()
 /*******************************************************************************************************
 Description: constructor parameters to set the critter character and step number.
 *******************************************************************************************************/
-Critter::Critter(char c, int startStepNumber)
+Critter::Critter(char c, int step, int xOne, int yOne)
 {
 	stepNumber = startStepNumber;
 	critterChar = c;
+	xSpot = xOne;
+	ySpot = yOne;
 }
 
 /*******************************************************************************************************
