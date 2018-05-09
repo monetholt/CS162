@@ -7,9 +7,10 @@ using std::cout;
 using std::endl;
 
 int main() {
-	Critter critter = Critter(0, 0);
+	Critter critter = Critter('X' , 3);
 	
-	cout << critter.getSteps() << endl;
+	cout << critter.getStepNumber() << endl;
+	cout << critter.getCritterChar() << endl;
 
 	return 0;
 }

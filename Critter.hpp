@@ -9,24 +9,25 @@
 class Critter
 {
 private:
-	int steps;
-	int xCoord;
-	int yCoord;
+	int stepNumber;
+	char critterChar;
 
 public:
 	//constructor with no parameters.
 	Critter();
 
-	//constructor with parameters to set x, y coordinate
-	Critter(int x, int y);
+	//constructor with parameters to set starting step number and critter character
+	Critter(char c, int step);
 
 	//getters
-	int getSteps();
+	int getStepNumber();
+	char getCritterChar();
 
-	//setters
-	void setSteps(int);
+	//increase stepNumber by 1
+	void addAStep();
 
-	virtual void move();
+	virtual int move();
+	virtual bool breed();
 };
 
 #endif

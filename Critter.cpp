@@ -10,42 +10,57 @@ Description: constructor with no parameters.
 *******************************************************************************************************/
 Critter::Critter()
 {
-	xCoord = -1;
-	yCoord = -1;
-	steps = 0;
+	stepNumber = 0;
+	critterChar = ' ';
 }
 
 /*******************************************************************************************************
-Description: constructor parameters to set x and y coordinates.
+Description: constructor parameters to set the critter character and step number.
 *******************************************************************************************************/
-Critter::Critter(int x, int y)
+Critter::Critter(char c, int startStepNumber)
 {
-	xCoord = x;
-	yCoord = y;
-	steps = 0;
-
+	stepNumber = startStepNumber;
+	critterChar = c;
 }
 
 /*******************************************************************************************************
-Description: get the step count for the critter
+Description: get the step number for the critter
 *******************************************************************************************************/
-int Critter::getSteps()
+int Critter::getStepNumber()
 {
-	return steps;
+	return stepNumber;
+}
+
+/*******************************************************************************************************
+Description: get the critter character.
+*******************************************************************************************************/
+char Critter::getCritterChar()
+{
+	return critterChar;
 }
 
 /*******************************************************************************************************
 Description: sets the step counter for the critter to the passed integer.
 *******************************************************************************************************/
-void Critter::setSteps(int stepNum)
+void Critter::addAStep()
 {
-	steps = stepNum;
+	stepNumber++;
 }
 
 /*******************************************************************************************************
-Description: moves the critter
+Description: returns an integer representing the direction for the critter to move.
 *******************************************************************************************************/
-void Critter::move()
+int Critter::move()
 {
-	steps++;
+	addAStep();
+
+	return 0;
+}
+
+/*******************************************************************************************************
+Description: returns true if a critter can breed or false if not.
+*******************************************************************************************************/
+bool Critter::breed()
+{
+	return false;
 }
