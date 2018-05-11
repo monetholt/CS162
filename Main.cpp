@@ -28,7 +28,6 @@ int main() {
 		}
 	}
 
-	std::cin >> turns;
 
 	while (counter < turns)
 	{
