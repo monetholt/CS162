@@ -8,7 +8,7 @@
 
 class Critter
 {
-private:
+protected:
 	int stepNumber;
 	char critterChar;
 	bool moved;
@@ -21,17 +21,20 @@ public:
 	Critter(char c, int step);
 
 	//getters
-	int getStepNumber();
-	char getCritterChar();
-	bool hasMoved();
+	virtual int getStepNumber();
+	virtual char getCritterChar();
+
+	/********************************************/
+	virtual bool hasMoved();
+	virtual void resetMoved();
 
 	//increase stepNumber by 1
-	void addAStep();
+	virtual void addAStep();
 
 	// set equal to zero, defining in doodle and ant class
 	/*****************************************************/
-	virtual void move(Critter**&, int, int)= 0;
-	virtual bool breed();
+	virtual void move(Critter***&, int, int)= 0;
+	virtual void breed(Critter***&,int, int) = 0;
 };
 
 #endif

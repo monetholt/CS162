@@ -65,7 +65,7 @@ Description: returns an integer representing the direction for the critter to mo
 /*******************************************************************************************************
 Description: returns true if a critter can breed or false if not.
 *******************************************************************************************************/
-bool Critter::breed()
+void Critter::breed()
 {
 	return false;
 }
@@ -76,4 +76,13 @@ Returns if the critter has moved or not
 bool Critter::hasMoved()
 {
 	return moved;
+}
+
+/******************************************************
+Resets if a critter has moved at the beginning of each 
+turn
+*******************************************************/
+void Critter::resetMoved()
+{
+	moved = false;
 }

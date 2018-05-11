@@ -15,6 +15,7 @@ class Ant : public Critter
 public:
 	Ant();
 	void move(Critter***&, int, int);
+	void breed(Critter***&, int, int);
 };
 
 #endif

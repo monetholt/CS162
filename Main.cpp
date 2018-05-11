@@ -32,6 +32,19 @@ int main() {
 
 	while (counter < turns)
 	{
+		//reset if its moved at the beginning of each turn
+		for (int i = 0; i < 20; i++)
+		{
+			for (int x = 0; x < 20; x++)
+			{
+				if (critArray[i][x] != nullptr)
+				{
+					critArray[i][x]->resetMoved();
+				}
+			}
+		}
+
+
 		for (int i = 0; i < 20; i++)
 		{
 			for (int x = 0; x < 20; x++)
@@ -41,12 +54,21 @@ int main() {
 				{
 					if (critArray[i][x]->hasMoved() == false)
 					{
-						//DO MOVE STUFF
-						//EX critArray[i][x]->move(critArray,i,x);
+						critArray[i][x]->move(critArray,i,x);
 					}
 				}
 			}
 		}
+		for (int i = 0; i < 20; i++)
+		{
+			for (int x = 0; x < 20; x++)
+			{
+				if (critArray[i][x] != nullptr)
+				{
+					critArray[i][x]->breed(critArray, i, x);
+				}
+			}
+
 	}
 
 	//cout << critter.getStepNumber() << endl;
