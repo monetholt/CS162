@@ -50,12 +50,13 @@ void Critter::addAStep()
 /*******************************************************************************************************
 Description: returns an integer representing the direction for the critter to move.
 *******************************************************************************************************/
-int Critter::move()
+/*******************************************************/
+/*int Critter::move()
 {
 	addAStep();
 
 	return 0;
-}
+}*/
 
 /*******************************************************************************************************
 Description: returns true if a critter can breed or false if not.
