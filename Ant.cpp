@@ -9,7 +9,7 @@ Ant::Ant()
 	moved = false;
 }
 
-void Ant::move(Critter***& array, int row, int column)
+void Ant::move(Critter***& array, int row, int column, int rowMax, int colMax)
 {
 	int direction = rand() % 4;
 	//0 = up, 1 = right, 2 = down, 3 = left
@@ -23,7 +23,7 @@ void Ant::move(Critter***& array, int row, int column)
 	}
 	else if (direction == 1)
 	{
-		if (column + 1 <= 19 && array[row][column+1] == nullptr)
+		if (column + 1 < colMax && array[row][column+1] == nullptr)
 		{
 			array[row][column + 1] = array[row][column];
 			array[row][column] = nullptr;
@@ -31,7 +31,7 @@ void Ant::move(Critter***& array, int row, int column)
 	}
 	else if (direction == 2)
 	{
-		if (row + 1 <= 19 && array[row+1][column] == nullptr)
+		if (row + 1 < rowMax && array[row+1][column] == nullptr)
 		{
 			array[row + 1][column] = array[row][column];
 			array[row][column] = nullptr;
@@ -47,7 +47,7 @@ void Ant::move(Critter***& array, int row, int column)
 	moved = true;
 }
 
-void Ant::breed(Critter***& array, int row, int column)
+void Ant::breed(Critter***& array, int row, int column, int rowMax, int colMax)
 {
 	int breedDirection = 0;
 	//flags for checking a direction
@@ -73,7 +73,7 @@ void Ant::breed(Critter***& array, int row, int column)
 				else if (breedDirection == 1)
 				{
 					right = false;
-					if (column + 1 <= 19 && array[row][column + 1] == nullptr)
+					if (column + 1 < colMax && array[row][column + 1] == nullptr)
 					{
 						array[row][column + 1] = new Ant;
 						babyBorn = true;
@@ -83,7 +83,7 @@ void Ant::breed(Critter***& array, int row, int column)
 				else if (breedDirection == 2)
 				{
 					down = false;
-					if (row + 1 <= 19 && array[row + 1][column] == nullptr)
+					if (row + 1 < rowMax && array[row + 1][column] == nullptr)
 					{
 						array[row + 1][column] = new Ant;
 						babyBorn = true;

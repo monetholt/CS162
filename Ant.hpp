@@ -14,8 +14,8 @@ class Ant : public Critter
 {
 public:
 	Ant();
-	void move(Critter***&, int, int);
-	void breed(Critter***&, int, int);
+	void move(Critter***&, int, int, int, int);
+	void breed(Critter***&, int, int, int, int);
 };
 
 #endif
