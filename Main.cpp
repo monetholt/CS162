@@ -4,37 +4,47 @@
 #include "Critter.hpp"
 #include "Ant.hpp"
 #include <iostream>
+#include "validate.hpp"
+#include <string>
+
 using std::cout;
 using std::endl;
 
 int main() {
-	//Critter critter = Critter('X' , 3);
+	
 	
 	int turns = 10;
 	int counter = 0;
+	int rowMax = 0;
+	int columnMax = 0;
 	//This has to be a triple pointer, because the final critter pointer has to point 
 	// to an ant or a doodlebug
-	Critter ***critArray = new Critter **[20];
-	for (int i = 0; i < 20; i++)
+
+	rowMax = validateInt(0, 100000, "Enter the number of rows.");
+	columnMax = validateInt(0, 100000, "Enter the number of columns.");
+
+	Critter ***critArray = new Critter **[rowMax];
+	for (int i = 0; i < rowMax; i++)
 	{
-		critArray[i] = new Critter*[20];
+		critArray[i] = new Critter*[columnMax];
 	}
 	//set up the array full of nullptrs
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < rowMax; i++)
 	{
-		for (int x = 0; x < 20; x++)
+		for (int x = 0; x < columnMax; x++)
 		{
 			critArray[i][x] = nullptr;
 		}
 	}
+	
 	critArray[5][5] = new Ant;
 
 	while (counter < turns)
 	{
 		//reset if its moved at the beginning of each turn
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < rowMax; i++)
 		{
-			for (int x = 0; x < 20; x++)
+			for (int x = 0; x < columnMax; x++)
 			{
 				if (critArray[i][x] != nullptr)
 				{
@@ -44,37 +54,37 @@ int main() {
 		}
 
 
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < rowMax; i++)
 		{
-			for (int x = 0; x < 20; x++)
+			for (int x = 0; x < columnMax; x++)
 			{
 				//MAKE SURE THAT THERE IS A BUG THERE FIRST
 				if (critArray[i][x] != nullptr)
 				{
 					if (critArray[i][x]->hasMoved() == false)
 					{
-						critArray[i][x]->move(critArray,i,x);
+						critArray[i][x]->move(critArray,i,x,rowMax,columnMax);
 					}
 				}
 			}
 		}
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < rowMax; i++)
 		{
-			for (int x = 0; x < 20; x++)
+			for (int x = 0; x < columnMax; x++)
 			{
 				if (critArray[i][x] != nullptr)
 				{
-					critArray[i][x]->breed(critArray, i, x);
+					critArray[i][x]->breed(critArray, i, x, rowMax, columnMax);
 				}
 			}
 		}
 		
 		
-		std::cout << "-----------------------------------------" << std::endl;
-		for (int i = 0; i < 20; i++)
+		std::cout << std::string(columnMax * 2 + 1,'-') << std::endl;
+		for (int i = 0; i < rowMax; i++)
 		{
 			std::cout << "|";
-			for (int x = 0; x < 20; x++)
+			for (int x = 0; x < columnMax; x++)
 			{
 				if (critArray[i][x] == nullptr)
 				{
@@ -89,12 +99,10 @@ int main() {
 			}
 			std::cout << std::endl;
 		}
+		std::cout << std::string(columnMax * 2 + 1, '-') << std::endl;
 			std::cin.ignore();
 
 	}
-
-	//cout << critter.getStepNumber() << endl;
-	//cout << critter.getCritterChar() << endl;
 
 	return 0;
 }

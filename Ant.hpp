@@ -8,14 +8,14 @@ Description: Header file for the Ant class.
 #define ANT_HPP
 
 //NEED TO CHANGE THIS FOR FINAL UPLOAD
-#include "c:\Users\Christopher\Documents\GitHub\CS162\Critter.hpp"
+#include "Critter.hpp"
 
 class Ant : public Critter
 {
 public:
 	Ant();
-	void move(Critter***&, int, int);
-	void breed(Critter***&, int, int);
+	void move(Critter***&, int, int, int, int);
+	void breed(Critter***&, int, int, int, int);
 };
 
 #endif
