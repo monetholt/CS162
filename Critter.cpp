@@ -11,21 +11,21 @@ Description: constructor with no parameters.
 /***************************************************************************
 Constructors dont carry over to children, so we can remove this constructor
 *****************************************************************************/
-Critter::Critter()
-{
-	stepNumber = 0;
-	critterChar = ' ';
-	moved = false;
-}
+//Critter::Critter()
+//{
+	//stepNumber = 0;
+	//critterChar = ' ';
+	//moved = false;
+//}
 
 /*******************************************************************************************************
 Description: constructor parameters to set the critter character and step number.
 *******************************************************************************************************/
-Critter::Critter(char c, int startStepNumber)
-{
-	stepNumber = startStepNumber;
-	critterChar = c;
-}
+//Critter::Critter(char c, int startStepNumber)
+//{
+	//stepNumber = startStepNumber;
+	//critterChar = c;
+//}
 
 /*******************************************************************************************************
 Description: get the step number for the critter
@@ -65,10 +65,10 @@ Description: returns an integer representing the direction for the critter to mo
 /*******************************************************************************************************
 Description: returns true if a critter can breed or false if not.
 *******************************************************************************************************/
-void Critter::breed()
-{
-	return false;
-}
+//void Critter::breed()
+//{
+	//return false;
+//}
 
 /**************************************************
 Returns if the critter has moved or not

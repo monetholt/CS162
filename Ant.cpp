@@ -23,7 +23,7 @@ void Ant::move(Critter***& array, int row, int column)
 	}
 	else if (direction == 1)
 	{
-		if (column + 1 <= 20 && array[row][column+1] == nullptr)
+		if (column + 1 <= 19 && array[row][column+1] == nullptr)
 		{
 			array[row][column + 1] = array[row][column];
 			array[row][column] = nullptr;
@@ -31,7 +31,7 @@ void Ant::move(Critter***& array, int row, int column)
 	}
 	else if (direction == 2)
 	{
-		if (row + 1 <= 20 && array[row+1][column] == nullptr)
+		if (row + 1 <= 19 && array[row+1][column] == nullptr)
 		{
 			array[row + 1][column] = array[row][column];
 			array[row][column] = nullptr;
@@ -73,7 +73,7 @@ void Ant::breed(Critter***& array, int row, int column)
 				else if (breedDirection == 1)
 				{
 					right = false;
-					if (column + 1 <= 20 && array[row][column + 1] == nullptr)
+					if (column + 1 <= 19 && array[row][column + 1] == nullptr)
 					{
 						array[row][column + 1] = new Ant;
 						babyBorn = true;
@@ -83,7 +83,7 @@ void Ant::breed(Critter***& array, int row, int column)
 				else if (breedDirection == 2)
 				{
 					down = false;
-					if (row + 1 <= 20 && array[row + 1][column] == nullptr)
+					if (row + 1 <= 19 && array[row + 1][column] == nullptr)
 					{
 						array[row + 1][column] = new Ant;
 						babyBorn = true;

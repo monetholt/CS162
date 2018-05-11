@@ -10,7 +10,7 @@ using std::endl;
 int main() {
 	//Critter critter = Critter('X' , 3);
 	
-	int turns = 0;
+	int turns = 10;
 	int counter = 0;
 	//This has to be a triple pointer, because the final critter pointer has to point 
 	// to an ant or a doodlebug
@@ -27,7 +27,7 @@ int main() {
 			critArray[i][x] = nullptr;
 		}
 	}
-
+	critArray[5][5] = new Ant;
 
 	while (counter < turns)
 	{
@@ -67,6 +67,29 @@ int main() {
 					critArray[i][x]->breed(critArray, i, x);
 				}
 			}
+		}
+		
+		
+		std::cout << "-----------------------------------------" << std::endl;
+		for (int i = 0; i < 20; i++)
+		{
+			std::cout << "|";
+			for (int x = 0; x < 20; x++)
+			{
+				if (critArray[i][x] == nullptr)
+				{
+					std::cout << ' ';
+				}
+				else
+				{
+					std::cout << critArray[i][x]->getCritterChar();
+				}
+				std::cout << "|";
+				
+			}
+			std::cout << std::endl;
+		}
+			std::cin.ignore();
 
 	}
 

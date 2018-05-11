@@ -15,10 +15,10 @@ protected:
 
 public:
 	//constructor with no parameters.
-	Critter();
+	//Critter();
 
 	//constructor with parameters to set starting step number and critter character
-	Critter(char c, int step);
+	//Critter(char c, int step);
 
 	//getters
 	virtual int getStepNumber();
@@ -34,7 +34,7 @@ public:
 	// set equal to zero, defining in doodle and ant class
 	/*****************************************************/
 	virtual void move(Critter***&, int, int)= 0;
-	virtual void breed(Critter***&,int, int) = 0;
+	virtual void breed(Critter***&,int, int)= 0;
 };
 
 #endif

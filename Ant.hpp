@@ -8,7 +8,7 @@ Description: Header file for the Ant class.
 #define ANT_HPP
 
 //NEED TO CHANGE THIS FOR FINAL UPLOAD
-#include "Critter.hpp"
+#include "c:\Users\Christopher\Documents\GitHub\CS162\Critter.hpp"
 
 class Ant : public Critter
 {
