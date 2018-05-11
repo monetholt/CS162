@@ -28,7 +28,7 @@ public:
 
 	// set equal to zero, defining in doodle and ant class
 	/*****************************************************/
-	virtual int move(Critter**&, int, int)= 0;
+	virtual void move(Critter**&, int, int)= 0;
 	virtual bool breed();
 };
 
