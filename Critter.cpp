@@ -8,20 +8,24 @@
 /*******************************************************************************************************
 Description: constructor with no parameters.
 *******************************************************************************************************/
-Critter::Critter()
-{
-	stepNumber = 0;
-	critterChar = ' ';
-}
+/***************************************************************************
+Constructors dont carry over to children, so we can remove this constructor
+*****************************************************************************/
+//Critter::Critter()
+//{
+	//stepNumber = 0;
+	//critterChar = ' ';
+	//moved = false;
+//}
 
 /*******************************************************************************************************
 Description: constructor parameters to set the critter character and step number.
 *******************************************************************************************************/
-Critter::Critter(char c, int startStepNumber)
-{
-	stepNumber = startStepNumber;
-	critterChar = c;
-}
+//Critter::Critter(char c, int startStepNumber)
+//{
+	//stepNumber = startStepNumber;
+	//critterChar = c;
+//}
 
 /*******************************************************************************************************
 Description: get the step number for the critter
@@ -50,17 +54,35 @@ void Critter::addAStep()
 /*******************************************************************************************************
 Description: returns an integer representing the direction for the critter to move.
 *******************************************************************************************************/
-int Critter::move()
+/*******************************************************/
+/*int Critter::move()
 {
 	addAStep();
 
 	return 0;
-}
+}*/
 
 /*******************************************************************************************************
 Description: returns true if a critter can breed or false if not.
 *******************************************************************************************************/
-bool Critter::breed()
+//void Critter::breed()
+//{
+	//return false;
+//}
+
+/**************************************************
+Returns if the critter has moved or not
+***************************************************/
+bool Critter::hasMoved()
 {
-	return false;
+	return moved;
+}
+
+/******************************************************
+Resets if a critter has moved at the beginning of each 
+turn
+*******************************************************/
+void Critter::resetMoved()
+{
+	moved = false;
 }

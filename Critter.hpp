@@ -8,26 +8,33 @@
 
 class Critter
 {
-private:
+protected:
 	int stepNumber;
 	char critterChar;
+	bool moved;
 
 public:
 	//constructor with no parameters.
-	Critter();
+	//Critter();
 
 	//constructor with parameters to set starting step number and critter character
-	Critter(char c, int step);
+	//Critter(char c, int step);
 
 	//getters
-	int getStepNumber();
-	char getCritterChar();
+	virtual int getStepNumber();
+	virtual char getCritterChar();
+
+	/********************************************/
+	virtual bool hasMoved();
+	virtual void resetMoved();
 
 	//increase stepNumber by 1
-	void addAStep();
+	virtual void addAStep();
 
-	virtual int move();
-	virtual bool breed();
+	// set equal to zero, defining in doodle and ant class
+	/*****************************************************/
+	virtual void move(Critter***&, int, int)= 0;
+	virtual void breed(Critter***&,int, int)= 0;
 };
 
 #endif
