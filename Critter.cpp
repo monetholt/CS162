@@ -8,10 +8,14 @@
 /*******************************************************************************************************
 Description: constructor with no parameters.
 *******************************************************************************************************/
+/***************************************************************************
+Constructors dont carry over to children, so we can remove this constructor
+*****************************************************************************/
 Critter::Critter()
 {
 	stepNumber = 0;
 	critterChar = ' ';
+	moved = false;
 }
 
 /*******************************************************************************************************
@@ -64,4 +68,12 @@ Description: returns true if a critter can breed or false if not.
 bool Critter::breed()
 {
 	return false;
+}
+
+/**************************************************
+Returns if the critter has moved or not
+***************************************************/
+bool Critter::hasMoved()
+{
+	return moved;
 }

@@ -11,6 +11,7 @@ class Critter
 private:
 	int stepNumber;
 	char critterChar;
+	bool moved;
 
 public:
 	//constructor with no parameters.
@@ -22,6 +23,7 @@ public:
 	//getters
 	int getStepNumber();
 	char getCritterChar();
+	bool hasMoved();
 
 	//increase stepNumber by 1
 	void addAStep();

@@ -14,7 +14,7 @@ class Ant : public Critter
 {
 public:
 	Ant();
-	void move(Critter**&, int, int);
+	void move(Critter***&, int, int);
 };
 
 #endif
