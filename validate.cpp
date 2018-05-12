@@ -62,6 +62,7 @@ int stepNum()
 	else if (steppers > 0)
 	{
 		std::cout << "Game will run " << steppers << " times" << std::endl;
+		std::cin.ignore(1, '\n');
 		return steppers;
 	}
 }
