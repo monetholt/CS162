@@ -7,6 +7,8 @@
 #include <iostream>
 #include "validate.hpp"
 #include <string>
+#include <time.h>
+
 
 using std::cout;
 using std::endl;
@@ -21,10 +23,12 @@ int main() {
 	//This has to be a triple pointer, because the final critter pointer has to point 
 	// to an ant or a doodlebug
 
+	std::cout << "Extra credit options have been added!" << std::endl;
+
 	rowMax = validateInt(0, 100000, "Enter the number of rows.");
 	columnMax = validateInt(0, 100000, "Enter the number of columns.");
 	
-	turns = stepNum();
+	turns = validateInt(0,100000, "Enter the number of turns: ");
 	
 	Critter ***critArray = new Critter **[rowMax];
 	for (int i = 0; i < rowMax; i++)
@@ -41,25 +45,48 @@ int main() {
 	}
 	
 	// random placement of critters
-	int startBugs = 2;
-	int startAnts = 2;
+	// make sure the amount of bugs isnt more than possible spaces
+	int startBugs = validateInt(1, rowMax * columnMax - 1, "Enter # of doodlebugs: ");
+	int startAnts = validateInt(1, rowMax * columnMax - startBugs, "Enter # of ants: ");
 
-	srand(std::time(NULL));
+	srand(time(NULL));
 	
+	bool placed = false; //used in a while loop to ensure a bug is placed and not overwritten
 	for (int d = 1; d <= startBugs; d++)
 	{
-		int randX = rand() % columnMax;
-		int randY = rand() % rowMax;
-		cout << randX << " " << randY << endl;
-		critArray[randX][randY] = new Doodlebug;
+		//new bug so make sure that flag is reset
+		placed = false;
+		while (!placed)
+		{
+			int randX = rand() % columnMax;
+			int randY = rand() % rowMax;
+			//cout << randX << " " << randY << endl;
+
+			if (critArray[randX][randY] == nullptr)
+			{
+				critArray[randX][randY] = new Doodlebug;
+				//if bug placed, change flag.
+				placed = true;
+			}
+		}
+
 	}
-	
+	// same logic as previous for loop
 	for (int e = 1; e <= startAnts; e++)
 	{
-		int randX = rand() % columnMax;
-		int randY = rand() % rowMax;
-		cout << randX << " " << randY << endl;
-		critArray[randX][randY] = new Ant;
+		placed = false;
+		while (!placed)
+		{
+			int randX = rand() % columnMax;
+			int randY = rand() % rowMax;
+			//cout << randX << " " << randY << endl;
+			if (critArray[randX][randY] == nullptr)
+			{
+				critArray[randX][randY] = new Ant;
+				placed = true;
+
+			}
+		}
 	}
 
 
@@ -145,6 +172,7 @@ int main() {
 			std::cout << std::endl;
 		}
 		std::cout << std::string(columnMax * 2 + 1, '-') << std::endl;
+		std::cout << "Press enter to continue." << std::endl;
 			std::cin.ignore();
 
 		counter++;

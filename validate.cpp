@@ -65,4 +65,5 @@ int stepNum()
 		std::cin.ignore(1, '\n');
 		return steppers;
 	}
+	return 0;
 }
