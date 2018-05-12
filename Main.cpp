@@ -3,6 +3,7 @@
 *******************************************************************************************************/
 #include "Critter.hpp"
 #include "Ant.hpp"
+#include "Doodlebug.hpp"
 #include <iostream>
 #include "validate.hpp"
 #include <string>
@@ -12,7 +13,7 @@ using std::endl;
 
 int main() {
 	
-	
+
 	int turns = 10;
 	int counter = 0;
 	int rowMax = 0;
@@ -37,7 +38,15 @@ int main() {
 		}
 	}
 	
+	//fill the array with ants and doodlebugs to start
 	critArray[5][5] = new Ant;
+	critArray[0][0] = new Ant;
+	critArray[1][1] = new Ant;
+
+	critArray[2][2] = new Doodlebug;
+	critArray[0][2] = new Doodlebug;
+	critArray[1][0] = new Doodlebug;
+
 
 	while (counter < turns)
 	{
@@ -53,13 +62,29 @@ int main() {
 			}
 		}
 
-
+		//move all doodlebugs first
 		for (int i = 0; i < rowMax; i++)
 		{
 			for (int x = 0; x < columnMax; x++)
 			{
 				//MAKE SURE THAT THERE IS A BUG THERE FIRST
-				if (critArray[i][x] != nullptr)
+				if (critArray[i][x] != nullptr && critArray[i][x]->getCritterChar() == 'X')
+				{
+					if (critArray[i][x]->hasMoved() == false)
+					{
+						critArray[i][x]->move(critArray, i, x, rowMax, columnMax);
+					}
+				}
+			}
+		}
+
+		//next move all ants
+		for (int i = 0; i < rowMax; i++)
+		{
+			for (int x = 0; x < columnMax; x++)
+			{
+				//MAKE SURE THAT THERE IS A BUG THERE FIRST
+				if (critArray[i][x] != nullptr && critArray[i][x]->getCritterChar() == 'O')
 				{
 					if (critArray[i][x]->hasMoved() == false)
 					{
@@ -68,6 +93,8 @@ int main() {
 				}
 			}
 		}
+
+		//attempt to breed all critters.
 		for (int i = 0; i < rowMax; i++)
 		{
 			for (int x = 0; x < columnMax; x++)
@@ -80,6 +107,9 @@ int main() {
 		}
 		
 		
+		//print the board.
+		std::cout << "Round #" << counter + 1 << std::endl;
+
 		std::cout << std::string(columnMax * 2 + 1,'-') << std::endl;
 		for (int i = 0; i < rowMax; i++)
 		{
@@ -102,7 +132,23 @@ int main() {
 		std::cout << std::string(columnMax * 2 + 1, '-') << std::endl;
 			std::cin.ignore();
 
+		counter++;
 	}
+
+
+	//deallocate memory for the critter array
+	for (int i = 0; i < rowMax; i++)
+	{
+		for (int x = 0; x < columnMax; x++)
+		{
+			delete critArray[i][x];
+		}
+
+		delete[] critArray[i];
+	}
+
+	delete[] critArray;
+
 
 	return 0;
 }
