@@ -40,14 +40,27 @@ int main() {
 		}
 	}
 	
-	//fill the array with ants and doodlebugs to start
-	critArray[5][5] = new Ant;
-	critArray[0][0] = new Ant;
-	critArray[1][1] = new Ant;
+	// random placement of critters
+	int startBugs = 2;
+	int startAnts = 2;
 
-	critArray[2][2] = new Doodlebug;
-	critArray[0][2] = new Doodlebug;
-	critArray[1][0] = new Doodlebug;
+	srand(std::time(NULL));
+	
+	for (int d = 1; d <= startBugs; d++)
+	{
+		int randX = rand() % columnMax;
+		int randY = rand() % rowMax;
+		cout << randX << " " << randY << endl;
+		critArray[randX][randY] = new Doodlebug;
+	}
+	
+	for (int e = 1; e <= startAnts; e++)
+	{
+		int randX = rand() % columnMax;
+		int randY = rand() % rowMax;
+		cout << randX << " " << randY << endl;
+		critArray[randX][randY] = new Ant;
+	}
 
 
 	while (counter < turns)
