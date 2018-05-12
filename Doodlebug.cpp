@@ -13,9 +13,7 @@ Doodlebug::Doodlebug()
 	stepNumber = stepLastMeal = 0;
 	critterChar = 'X';
 	moved = false;
-
-	//seed the random number generator.
-	srand(time(NULL));
+	
 }
 
 /*******************************************************************************************************
