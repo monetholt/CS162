@@ -14,7 +14,7 @@ using std::endl;
 int main() {
 	
 
-	int turns = 10;
+	int turns = 0;
 	int counter = 0;
 	int rowMax = 0;
 	int columnMax = 0;
@@ -23,7 +23,8 @@ int main() {
 
 	rowMax = validateInt(0, 100000, "Enter the number of rows.");
 	columnMax = validateInt(0, 100000, "Enter the number of columns.");
-
+	turns = stepNum();
+	
 	Critter ***critArray = new Critter **[rowMax];
 	for (int i = 0; i < rowMax; i++)
 	{
