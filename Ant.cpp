@@ -95,6 +95,7 @@ void Ant::breed(Critter***& array, int row, int column, int rowMax, int colMax)
 					if (column - 1 >= 0 && array[row][column - 1] == nullptr)
 					{
 						array[row][column - 1] = new Ant;
+						babyBorn = true;
 					}
 				}
 			}
