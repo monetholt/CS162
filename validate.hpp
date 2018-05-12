@@ -11,5 +11,5 @@ to be used for the group project
 #include <string>
 
 int validateInt(int min, int max, std::string question);
-
+int stepNum();
 #endif
