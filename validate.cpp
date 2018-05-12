@@ -45,3 +45,23 @@ int validateInt(int min, int max, std::string question)
 
 	return correctInput;
 }
+
+int stepNum()
+{
+	int steppers = 0;
+	std::cout << "Enter number of steps to run" << std::endl;
+	std::cin >> steppers;
+
+	if (steppers <= 0)
+	{
+		std::cin.clear();
+		std::cin.ignore(100, '\n');
+		std::cout << "Enter a positive number" << std::endl;
+		stepNum();
+	}
+	else if (steppers > 0)
+	{
+		std::cout << "Game will run " << steppers << " times" << std::endl;
+		return steppers;
+	}
+}
