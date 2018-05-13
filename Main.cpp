@@ -79,7 +79,7 @@ int main() {
 		{
 			int randX = rand() % columnMax;
 			int randY = rand() % rowMax;
-			//cout << randX << " " << randY << endl;
+			//<< randX << " " << randY << endl;
 			if (critArray[randX][randY] == nullptr)
 			{
 				critArray[randX][randY] = new Ant;
