@@ -25,8 +25,8 @@ int main() {
 
 	std::cout << "Extra credit options have been added!" << std::endl;
 
-	rowMax = validateInt(0, 100000, "Enter the number of rows.");
-	columnMax = validateInt(0, 100000, "Enter the number of columns.");
+	rowMax = validateInt(11, 100000, "Enter the number of rows (minimum 11).");
+	columnMax = validateInt(11, 100000, "Enter the number of columns (minimum 11).");
 	
 	turns = validateInt(0,100000, "Enter the number of turns: ");
 	
